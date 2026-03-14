@@ -1,0 +1,804 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="issac_seven">
+
+  <link name="base_footprint_link"/>
+
+  <joint name="base_footprint_joint" type="fixed">
+  <parent link="base_footprint_link"/>
+  <child link="base_link"/>
+  <origin xyz="0 0 0.05" rpy="0 0 0"/>
+  </joint>
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0248479796881225 -0.0112943222529918 0.0362638786365603"
+        rpy="0 0 0" />
+      <mass
+        value="16.0457708997092" />
+      <inertia
+        ixx="0.14021509634615"
+        ixy="0.000535721336349477"
+        ixz="-0.000805462177597089"
+        iyy="0.199659229591452"
+        iyz="9.84458791671503E-05"
+        izz="0.319238171634791" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bugger/meshes/visual/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.45 0.35 0.12"/>
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="left_wheel">
+    <inertial>
+      <origin
+        xyz="-1.45521954928451E-05 0.000688108128103382 1.70906873010468E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.266150143776577" />
+      <inertia
+        ixx="0.000363355045282095"
+        ixy="4.8306260702547E-08"
+        ixz="-6.22191042124078E-08"
+        iyy="0.000659372293190558"
+        iyz="-5.62012125467068E-08"
+        izz="0.000363910990808926" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bugger/meshes/visual/left_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 0.35" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.06" length="0.03"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="leftwheel"
+    type="continuous">
+    <origin
+      xyz="-0.0022134 0.19925 -0.035"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_wheel" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="right_wheel">
+    <inertial>
+      <origin
+        xyz="1.41832273394815E-05 -0.000688994267547649 -1.84245151813034E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.26616914297798" />
+      <inertia
+        ixx="0.000363847207290197"
+        ixy="4.2514951574031E-08"
+        ixz="-1.8778456164125E-07"
+        iyy="0.000659372293190558"
+        iyz="-6.07004942926805E-08"
+        izz="0.000363418828800825" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bugger/meshes/visual/right_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 0.35" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.06" length="0.03"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rightwheel"
+    type="continuous">
+    <origin
+      xyz="-0.0022134 -0.19925 -0.035"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_wheel" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="front_castor">
+    <inertial>
+      <origin
+        xyz="-1.47230971914158E-06 -1.31477673193103E-09 -0.0075492724826719"
+        rpy="0 0 0" />
+      <mass
+        value="0.188433066543013" />
+      <inertia
+        ixx="0.000325365378783494"
+        ixy="-1.03442588377839E-06"
+        ixz="-7.8020030948336E-09"
+        iyy="0.00019979281882914"
+        iyz="1.24832253355552E-18"
+        izz="0.000468525846318118" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bugger/meshes/visual/front_castor.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.168627450980392 0.4 0.619607843137255 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bugger/meshes/visual/front_castor.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="frontcastor"
+    type="continuous">
+    <origin
+      xyz="0.18875 -0.01515 -0.0171"
+      rpy="0 0 0.029377" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_castor" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="ff_castor">
+    <inertial>
+      <origin
+        xyz="-2.01924639933182E-05 -0.000750000002212592 -0.00332627702110022"
+        rpy="0 0 0" />
+      <mass
+        value="0.175593255248327" />
+      <inertia
+        ixx="5.22328303456477E-05"
+        ixy="1.02702744854584E-20"
+        ixz="1.34069473916505E-21"
+        iyy="8.67725285268534E-05"
+        iyz="1.56323920872947E-21"
+        izz="5.22328303456477E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bugger/meshes/visual/ff_castor.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.0941176470588235 0.0941176470588235 0.0941176470588235 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bugger/meshes/visual/ff_castor.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ffcastor"
+    type="continuous">
+    <origin
+      xyz="0.05037 0 -0.044174"
+      rpy="0 0 0" />
+    <parent
+      link="front_castor" />
+    <child
+      link="ff_castor" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="fr_castor">
+    <inertial>
+      <origin
+        xyz="-0.00319356415575078 -0.000716666666666921 -0.000930416326103467"
+        rpy="0 0 0" />
+      <mass
+        value="0.175593255248328" />
+      <inertia
+        ixx="5.22328303456477E-05"
+        ixy="3.3881317890172E-21"
+        ixz="-2.97557288424969E-22"
+        iyy="8.67725285268534E-05"
+        iyz="5.64562600535183E-21"
+        izz="5.22328303456477E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bugger/meshes/visual/fr_castor.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.0941176470588235 0.0941176470588235 0.0941176470588235 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bugger/meshes/visual/fr_castor.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="frcastor"
+    type="continuous">
+    <origin
+      xyz="-0.047156 0 -0.04657"
+      rpy="0 0 0" />
+    <parent
+      link="front_castor" />
+    <child
+      link="fr_castor" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="rear_castor">
+    <inertial>
+      <origin
+        xyz="-1.49030058516075E-06 -1.26075393458436E-08 -0.00754927248267212"
+        rpy="0 0 0" />
+      <mass
+        value="0.188433066543014" />
+      <inertia
+        ixx="0.000325289007444755"
+        ixy="1.93657213819524E-06"
+        ixz="-7.80200309514167E-09"
+        iyy="0.000199869190167881"
+        iyz="1.24535511828005E-18"
+        izz="0.00046852584631812" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bugger/meshes/visual/rear_castor.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.168627450980392 0.4 0.619607843137255 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bugger/meshes/visual/rear_castor.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rearcastor"
+    type="continuous">
+    <origin
+      xyz="-0.18918 0.01515 -0.0171"
+      rpy="0 0 -0.055077" />
+    <parent
+      link="base_link" />
+    <child
+      link="rear_castor" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="rf_castor">
+    <inertial>
+      <origin
+        xyz="2.01924640019779E-05 -0.000749999999994144 0.00332627702110044"
+        rpy="0 0 0" />
+      <mass
+        value="0.175593255248329" />
+      <inertia
+        ixx="5.22328303456482E-05"
+        ixy="-1.8422966602781E-20"
+        ixz="1.2901995018405E-21"
+        iyy="8.67725285268541E-05"
+        iyz="5.06564454554672E-21"
+        izz="5.22328303456482E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bugger/meshes/visual/rf_castor.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.0941176470588235 0.0941176470588235 0.0941176470588235 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bugger/meshes/visual/rf_castor.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rfcastor"
+    type="continuous">
+    <origin
+      xyz="0.05033 0 -0.050826"
+      rpy="0 0 0" />
+    <parent
+      link="rear_castor" />
+    <child
+      link="rf_castor" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="rr_castor">
+    <inertial>
+      <origin
+        xyz="-0.0031935641557379 -0.000716666666662147 -0.0009304163261038"
+        rpy="0 0 0" />
+      <mass
+        value="0.175593255248329" />
+      <inertia
+        ixx="5.22328303456481E-05"
+        ixy="-9.52912065661088E-21"
+        ixz="-2.70252236776506E-21"
+        iyy="8.6772528526854E-05"
+        iyz="3.23880089143769E-21"
+        izz="5.22328303456481E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bugger/meshes/visual/rr_castor.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.0941176470588235 0.0941176470588235 0.0941176470588235 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bugger/meshes/visual/rr_castor.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rrcastor"
+    type="continuous">
+    <origin
+      xyz="-0.047156 0 -0.04657"
+      rpy="0 0 0" />
+    <parent
+      link="rear_castor" />
+    <child
+      link="rr_castor" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="depth_camera">
+    <inertial>
+      <origin
+        xyz="0.236482474503189 0.000439433671189371 0.0243999681342368"
+        rpy="0 0 0" />
+      <mass
+        value="0.110215155258526" />
+      <inertia
+        ixx="0.000135226643892952"
+        ixy="-6.05516681323578E-09"
+        ixz="-1.16922717897847E-08"
+        iyy="1.26404057853269E-05"
+        iyz="-4.4302143023925E-12"
+        izz="0.000133333992195612" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bugger/meshes/visual/depth_camera.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.498039215686275 0.498039215686275 0.498039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bugger/meshes/visual/depth_camera.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="dcamera"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="depth_camera" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="front_lidar">
+    <inertial>
+      <origin
+        xyz="0.198910140885991 0.00123094971141513 0.198753746521451"
+        rpy="0 0 0" />
+      <mass
+        value="0.0643280800400477" />
+      <inertia
+        ixx="1.20633668132692E-05"
+        ixy="1.77128240148071E-08"
+        ixz="-2.27122935436015E-06"
+        iyy="2.8634339781218E-05"
+        iyz="7.5586989060526E-09"
+        izz="3.74139907491419E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bugger/meshes/visual/front_lidar.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.03" length="0.05"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="frontlidar"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_lidar" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="rear_lidar">
+    <inertial>
+      <origin
+        xyz="-0.199336846345099 0.00116905028860437 0.198753746521441"
+        rpy="0 0 0" />
+      <mass
+        value="0.0643280800400428" />
+      <inertia
+        ixx="1.20633668132683E-05"
+        ixy="1.77128240135529E-08"
+        ixz="2.27122935436009E-06"
+        iyy="2.86343397812147E-05"
+        iyz="-7.55869890562831E-09"
+        izz="3.74139907491377E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bugger/meshes/visual/rear_lidar.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bugger/meshes/visual/rear_lidar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rearlidar"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="rear_lidar" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <gazebo reference="depth_camera">
+    <sensor name="depth_camera" type="depth_camera">
+      <always_on>true</always_on>
+      <visualize>true</visualize>
+      <update_rate>15</update_rate>
+      <topic>camera</topic>
+      <frame_id>depth_camera</frame_id>
+      <camera>
+        <horizontal_fov>1.047</horizontal_fov>
+        <image>
+          <width>640</width>
+          <height>480</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.1</near>
+          <far>10.0</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+    </sensor>
+  </gazebo>
+
+  <gazebo>
+    <plugin
+      filename="gz-sim-diff-drive-system"
+      name="gz::sim::systems::DiffDrive">
+      <left_joint>leftwheel</left_joint>
+      <right_joint>rightwheel</right_joint>
+      <wheel_separation>0.39</wheel_separation>
+      <wheel_radius>0.06</wheel_radius>
+      <odom_publish_frequency>30</odom_publish_frequency>
+      <topic>cmd_vel</topic>
+      <odom_topic>odom</odom_topic>
+      <tf_topic>tf</tf_topic>
+      <frame_id>odom</frame_id>
+      <child_frame_id>base_link</child_frame_id>
+    </plugin>
+  </gazebo>
+
+  <gazebo reference="front_lidar">
+    <sensor name="front_lidar" type="gpu_lidar">
+      <always_on>true</always_on>
+      <visualize>true</visualize>
+      <topic>scan</topic>
+      <update_rate>10</update_rate>
+      <frame_id>front_lidar</frame_id>
+      <lidar>
+        <scan>
+          <horizontal>
+            <samples>180</samples>
+            <resolution>1.00000</resolution>
+            <min_angle>-1.5708</min_angle>
+            <max_angle>1.5708</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.35</min>
+          <max>12.0</max>
+          <resolution>0.02</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </lidar>
+      <plugin name="ros_lidar" filename="libgazebo_ros_ray_sensor.so">
+        <ros>
+          <remapping>~/out:=scan</remapping>
+        </ros>
+        <frame_name>front_lidar</frame_name>
+      </plugin>
+
+
+    </sensor>
+  </gazebo>
+
+  <gazebo reference="left_wheel">
+    <collision>
+      <surface>
+        <friction>
+          <ode>
+            <mu>1.0</mu>
+            <mu2>1.0</mu2>
+            <fdir1>0 0 0</fdir1>
+            <slip1>0.0</slip1>
+            <slip2>0.0</slip2>
+          </ode>
+        </friction>
+        <contact>
+          <ode>
+            <min_depth>0.001</min_depth>
+            <kp>1e6</kp>
+            <kd>100</kd>
+          </ode>
+        </contact>
+      </surface>
+    </collision>
+  </gazebo>
+
+  <gazebo reference="right_wheel">
+    <collision>
+      <surface>
+        <friction>
+          <ode>
+            <mu>1.0</mu>
+            <mu2>1.0</mu2>
+            <fdir1>0 0 0</fdir1>
+            <slip1>0.0</slip1>
+            <slip2>0.0</slip2>
+          </ode>
+        </friction>
+        <contact>
+          <ode>
+            <min_depth>0.001</min_depth>
+            <kp>1e6</kp>
+            <kd>100</kd>
+          </ode>
+        </contact>
+      </surface>
+    </collision>
+  </gazebo>
+
+  <gazebo reference="ff_castor">
+    <collision>
+      <surface>
+        <friction>
+          <ode><mu>0.0</mu><mu2>0.0</mu2></ode>
+        </friction>
+      </surface>
+    </collision>
+  </gazebo>
+
+  <gazebo reference="fr_castor">
+    <collision>
+      <surface>
+        <friction>
+          <ode><mu>0.0</mu><mu2>0.0</mu2></ode>
+        </friction>
+      </surface>
+    </collision>
+  </gazebo>
+
+  <gazebo reference="rf_castor">
+    <collision>
+      <surface>
+        <friction>
+          <ode><mu>0.0</mu><mu2>0.0</mu2></ode>
+        </friction>
+      </surface>
+    </collision>
+  </gazebo>
+
+  <gazebo reference="rr_castor">
+    <collision>
+      <surface>
+        <friction>
+          <ode><mu>0.0</mu><mu2>0.0</mu2></ode>
+        </friction>
+      </surface>
+    </collision>
+  </gazebo>
+
+</robot>
