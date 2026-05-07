@@ -18,6 +18,8 @@ setup(
   	('share/' + package_name+'/meshes/collision/', glob('meshes/collision/*')),
   	('share/' + package_name+'/meshes/visual/', glob('meshes/visual/*')),
     ('share/' + package_name+'/config/', glob('config/*')),
+    ('share/' + package_name+'/maps/', glob('maps/*')),
+
     ],
     install_requires=['setuptools'],
     zip_safe=True,

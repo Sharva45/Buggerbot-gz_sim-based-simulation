@@ -46,17 +46,33 @@
   gz_type_name: "gz.msgs.LaserScan"
   direction: GZ_TO_ROS
 
-# gz topic published by Sensors plugin
-- ros_topic_name: "/rgb_image"
-  gz_topic_name: "/rgb_image"
+# ── Depth Camera (RGB + Depth + CameraInfo + PointCloud) ──────────────────
+# The sensor publishes to /camera/* — these must match your sensor <topic>camera</topic>
+
+# RGB image — this is what was broken (/rgb_image was wrong, sensor publishes /camera/image)
+- ros_topic_name: "/camera/image"
+  gz_topic_name: "/camera/image"
   ros_type_name: "sensor_msgs/msg/Image"
   gz_type_name: "gz.msgs.Image"
   direction: GZ_TO_ROS
-  
 
-# gz topic published by Sensors plugin (Camera)
-- ros_topic_name: "camera/camera_info"
-  gz_topic_name: "camera/camera_info"
+# Depth image — needed for RTABMap / ORB-SLAM3 RGBD mode
+- ros_topic_name: "/camera/depth_image"
+  gz_topic_name: "/camera/depth_image"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "gz.msgs.Image"
+  direction: GZ_TO_ROS
+
+# Camera info — required by ALL visual SLAM algorithms
+- ros_topic_name: "/camera/camera_info"
+  gz_topic_name: "/camera/camera_info"
   ros_type_name: "sensor_msgs/msg/CameraInfo"
   gz_type_name: "gz.msgs.CameraInfo"
+  direction: GZ_TO_ROS
+
+# PointCloud — optional, useful for RTABMap
+- ros_topic_name: "/camera/points"
+  gz_topic_name: "/camera/points"
+  ros_type_name: "sensor_msgs/msg/PointCloud2"
+  gz_type_name: "gz.msgs.PointCloudPacked"
   direction: GZ_TO_ROS

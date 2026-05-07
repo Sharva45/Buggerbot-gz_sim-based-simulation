@@ -90,6 +90,30 @@
           <ambient>0.622548997 0.622548997 0.622548997 1</ambient>
         </material>
       </visual>
+      <sensor name="depth_camera" type="rgbd_camera">
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <update_rate>15</update_rate>
+        <topic>camera</topic>
+        <gz_frame_id>depth_camera</gz_frame_id>
+        <camera name="depth_camera">
+          <horizontal_fov>1.5708</horizontal_fov>
+          <image>
+            <width>1366</width>
+            <height>768</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>1.0</near>
+            <far>10.0</far>
+          </clip>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.007</stddev>
+          </noise>
+        </camera>
+      </sensor>
     </link>
 
     <joint name="frontcastor" type="revolute">

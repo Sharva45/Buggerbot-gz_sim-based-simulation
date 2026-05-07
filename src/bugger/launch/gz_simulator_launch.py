@@ -19,7 +19,7 @@ def generate_launch_description():
     # Check if we're told to use sim time
     use_sim_time = LaunchConfiguration('use_sim_time')
     bringup_dir = get_package_share_directory('bugger')
-    world = os.path.join(bringup_dir , "world", "ionic.sdf")
+    world = os.path.join(bringup_dir , "world", "fast_food_cafe.sdf")
     sdf_file  =  os.path.join(bringup_dir, 'urdf', 'robot.sdf')
     with open(sdf_file, 'r') as infp:
         robot_desc = infp.read()
@@ -93,10 +93,10 @@ def generate_launch_description():
     )
 
 
-    '''tf_map= Node(
+    tf_map= Node(
         package='tf2_ros',
         executable='static_transform_publisher',
-        arguments= ["0", "0", "0", "0", "0", "0", "map", "odom"])'''
+        arguments= ["0", "0", "0", "0", "0", "0", "map", "odom"])
     
     
     tf_lidar = Node(
@@ -119,11 +119,29 @@ def generate_launch_description():
     }.items()
     )
 
+    '''nav2= IncludeLaunchDescription(
+    PythonLaunchDescriptionSource(
+        os.path.join(
+            get_package_share_directory('nav2_bringup'),
+            'launch',
+            'bringup_launch.py'
+        )
+    ),
+    launch_arguments={
+        'use_sim_time': 'true',
+        'map': '/home/sharva45/my_map.yaml',
+        'params_file': os.path.join(bringup_dir, 'config', 'nav2_params.yaml')
+     }.items()
+
+        
+    )'''
+    
+
     # Launch!
     return LaunchDescription([
         DeclareLaunchArgument('use_sim_time',default_value='True',description='Use sim time if true'),
         DeclareLaunchArgument('urdf_file',default_value=os.path.join(bringup_dir, 'urdf', 'issac_seven.urdf'),description='Whether to start RVIZ'),
         DeclareLaunchArgument('use_robot_state_pub',default_value='True',description='Whether to start the robot state publisher'),
         gz_resource_path,
-        gz_sim,bridge, spawn_entity,start_robot_state_publisher_cmd,tf_lidar,joint_state_publisher,slam
+        gz_sim,bridge, spawn_entity,start_robot_state_publisher_cmd,tf_map,tf_lidar,slam,joint_state_publisher
     ])

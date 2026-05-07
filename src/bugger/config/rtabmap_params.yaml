@@ -1,0 +1,95 @@
+# rtabmap_params.yaml
+# ─────────────────────────────────────────────────────────────────────────────
+# RTABMap Visual SLAM parameters for issac_seven robot
+# Tuned for indoor environment with a single RGBD camera + wheel odometry
+#
+# How to use:
+#   Referenced automatically by visual_slam_launch.py
+#   Or load manually:
+#     ros2 param load /rtabmap ~/buggerbot/config/rtabmap_params.yaml
+# ─────────────────────────────────────────────────────────────────────────────
+
+rtabmap:
+  ros__parameters:
+
+    # ── Input topics ───────────────────────────────────────────────────────
+    # These must match what your gz_bridge.yaml bridges
+    subscribe_depth:      false
+    subscribe_rgb:        false
+    subscribe_scan:       false     # set true if you want lidar-assisted SLAM
+    subscribe_scan_cloud: true
+    subscribe_odom_info:  true
+
+    # ── Frames ─────────────────────────────────────────────────────────────
+    frame_id:       base_link       # robot base TF frame
+    odom_frame_id:  odom            # wheel odometry frame (from DiffDrive plugin)
+    map_frame_id:   map             # global map frame
+
+    # ── Topic sync ─────────────────────────────────────────────────────────
+    # MUST be true — RGB and Depth are two separate sensors, not hardware synced
+    approx_sync:              true
+    approx_sync_max_interval: 0.05  # seconds — increase to 0.1 if you see sync warnings
+
+    # ── Database ───────────────────────────────────────────────────────────
+    database_path: ~/.ros/rtabmap.db   # change this to save map elsewhere
+
+    # ── Memory management ──────────────────────────────────────────────────
+    Mem/IncrementalMemory:    true     # false = localization only (do not update map)
+    Mem/InitWMWithAllNodes:   false    # true = load all nodes from DB on start
+    Mem/RehearsalSimilarity:  0.45    # keyframe similarity threshold (lower = more keyframes)
+    Mem/STMSize:              10      # short-term memory size
+
+    # ── Visual feature detection ────────────────────────────────────────────
+    # Feature type options:
+    #   0=SURF, 1=SIFT, 2=ORB, 3=FAST/FREAK, 4=FAST/BRIEF, 5=GFTT/FREAK,
+    #   6=GFTT/BRIEF, 7=BRISK, 8=GFTT/ORB, 9=KAZE, 11=ORB-OCTREE, 12=SuperPoint
+    # ORB (type 2) is recommended: fast, free (no patent), works well indoors
+    Vis/FeatureType:          2       # ORB
+    Vis/MaxFeatures:          1000    # features per frame — reduce to 500 if CPU-limited
+    Vis/MinInliers:           15      # min feature matches to accept a visual link
+    Vis/InlierDistance:       0.1     # RANSAC inlier threshold (metres)
+    Vis/EstimationType:       1       # 1=PnP (best for RGBD), 0=Essential matrix
+
+    # ── Loop closure detection ──────────────────────────────────────────────
+    # Loop closure = recognising a previously-visited place
+    Rtabmap/TimeThr:          0       # 0 = no time limit per iteration
+    Rtabmap/DetectionRate:    1       # Hz — how often to check for loop closures
+    Rtabmap/LoopThr:          0.11    # similarity threshold (lower = stricter)
+    Rtabmap/LoopRatio:        0.0
+
+    # ── Keyframe policy ─────────────────────────────────────────────────────
+    # A new keyframe is added when the robot moves/rotates enough
+    RGBD/LinearUpdate:        0.01    # metres — add keyframe if moved > 1cm
+    RGBD/AngularUpdate:       0.01    # radians — add keyframe if rotated > 0.01 rad
+    RGBD/NewMapOdomChangeDistance: 0.0
+
+    # ── Graph optimisation ──────────────────────────────────────────────────
+    # Applied after loop closure to correct accumulated drift
+    # 1=g2o (recommended), 0=TORO, 2=GTSAM
+    Optimizer/Strategy:       1       # g2o
+    Optimizer/Slam2D:         true    # true = 2D optimisation (planar robot)
+    Optimizer/Iterations:     10
+
+    # ── 2D Occupancy Grid (for Nav2) ────────────────────────────────────────
+    Grid/FromDepth:           true    # build grid from depth camera (not lidar)
+    Grid/3D:                  false   # output flat 2D grid
+    Grid/MaxObstacleHeight:   0.8     # ignore obstacles above this height
+    Grid/MinGroundHeight:     -0.1    # ignore ground below this height
+    Grid/RayTracing:          true    # marks free space between robot and obstacle
+    Grid/CellSize:            0.05    # map resolution in metres (5cm per cell)
+    Grid/ClusterRadius:       0.1
+    Grid/MaxGroundAngle:      45      # degrees — steeper = considered obstacle
+
+    # ── Odometry assistance ─────────────────────────────────────────────────
+    # RTABMap uses wheel odom (/odom) to initialise each frame's pose estimate
+    # before running visual matching. This makes it much more robust.
+    odom_topic:               /odom
+
+    # ── Output ──────────────────────────────────────────────────────────────
+    publish_tf:               true    # publish map → odom TF correction
+    gen_scan:                 false   # generate fake laser scan from depth
+                                      # set true if you want to drop lidar from Nav2
+
+    # ── Depth camera config ─────────────────────────────────────────────────
+    depth_camera_info_topic:  /camera/camera_info
+    depth_scale:              1.0     # depth value multiplier (1.0 = metres)

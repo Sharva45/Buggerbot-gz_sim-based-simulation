@@ -1,0 +1,96 @@
+<?xml version="1.0" ?>
+<sdf version="1.9">
+  <world name="mcdonalds_fixed">
+
+    <!-- SYSTEM PLUGINS -->
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+
+    <!-- PHYSICS (FIXED) -->
+    <physics name="1ms" type="dart">
+      <max_step_size>0.004</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    <!-- SCENE -->
+    <scene>
+      <ambient>0.6 0.6 0.6 1</ambient>
+      <background>0.4 0.4 0.4 1</background>
+      <shadows>true</shadows>
+    </scene>
+
+    <!-- LIGHT -->
+    <light name="sun" type="directional">
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>1 1 1 1</diffuse>
+      <direction>-0.5 0.1 -1</direction>
+    </light>
+
+    <!-- FLOOR -->
+    <model name="floor">
+      <static>true</static>
+      <pose>0 0 -0.025 0 0 0</pose>
+      <link name="link">
+        <collision name="col">
+          <geometry><box><size>14 12 0.05</size></box></geometry>
+        </collision>
+        <visual name="vis">
+          <geometry><box><size>14 12 0.05</size></box></geometry>
+        </visual>
+      </link>
+    </model>
+
+    <!-- WALLS -->
+    <model name="walls">
+      <static>true</static>
+      <link name="link">
+        <collision name="c1"><pose>0 6 1.9 0 0 0</pose><geometry><box><size>14 0.2 3.8</size></box></geometry></collision>
+        <collision name="c2"><pose>0 -6 1.9 0 0 0</pose><geometry><box><size>14 0.2 3.8</size></box></geometry></collision>
+        <collision name="c3"><pose>7 0 1.9 0 0 0</pose><geometry><box><size>0.2 12 3.8</size></box></geometry></collision>
+        <collision name="c4"><pose>-7 0 1.9 0 0 0</pose><geometry><box><size>0.2 12 3.8</size></box></geometry></collision>
+      </link>
+    </model>
+
+    <!-- TABLES (FIXED URI) -->
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/Table</uri>
+      <pose>-4 -3 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/Table</uri>
+      <pose>0 -3 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/Table</uri>
+      <pose>4 -3 0 0 0 0</pose>
+    </include>
+
+    <!-- CHAIRS (SPACING FIXED) -->
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/Chair</uri>
+      <pose>-4 -2.2 0 0 0 3.14</pose>
+    </include>
+
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/Chair</uri>
+      <pose>-4 -3.8 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/Chair</uri>
+      <pose>-3.2 -3 0 0 0 -1.57</pose>
+    </include>
+
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/Chair</uri>
+      <pose>-4.8 -3 0 0 0 1.57</pose>
+    </include>
+
+  </world>
+</sdf>
