@@ -10,11 +10,11 @@
 
 <p align="center">
   <!-- ADD: A screenshot or GIF of Buggerbot running in Gazebo -->
-  <img src="/home/sharva45/buggerbot/src/bugger/media/buggerbot screenshot.png" alt="Buggerbot in Gazebo Simulation" width="700"/>
+  <img src="/src/bugger/media/buggerbot screenshot.png" alt="Buggerbot in Gazebo Simulation" width="700"/>
 
-  <img src="/home/sharva45/buggerbot/src/bugger/media/AMR_1.png" alt="Buggerbot" width="700"/>
+  <img src="/src/bugger/media/AMR_1.png" alt="Buggerbot" width="700"/>
 
-  <img src="/home/sharva45/buggerbot/src/bugger/media/AMR_2.png" alt="Buggerbot" width="700"/>
+  <img src="/src/bugger/media/AMR_2.png" alt="Buggerbot" width="700"/>
 </p>
 
 > A complete **ROS 2 Humble + Gazebo Harmonic** simulation of Buggerbot — a differential drive wheeled robot — with a full URDF/SDF model, LiDAR/Camera/IMU sensor suite, keyboard teleoperation, and Nav2 autonomous navigation.
@@ -50,12 +50,12 @@
 
 | Gazebo Simulation | RViz2 Navigation |
 |:-----------------:|:----------------:|
-| ![sim](/home/sharva45/buggerbot/src/bugger/media/buggerbotsim.png) | ![rviz](/home/sharva45/buggerbot/src/bugger/media/buggerbotrviz.png) |
+| ![sim](/src/bugger/media/buggerbotsim.png) | ![rviz](/src/bugger/media/buggerbotrviz.png) |
 
 
->  [Mapping](/home/sharva45/buggerbot/src/bugger/media/Mapping.webm)
+>  [Mapping](/src/bugger/media/Mapping.webm)
 
-   [Navigation](/home/sharva45/buggerbot/src/bugger/media/Navigation.webm)
+>  [Navigation](/src/bugger/media/Navigation.webm)
 
 
 ---
@@ -148,7 +148,7 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard \
 ros2 launch bugger navigation.launch.py
 ```
 
-<img src="/home/sharva45/buggerbot/src/bugger/media/buggerbot screenshot.png" alt="Buggerbot in Gazebo Simulation" width="700"/>
+<img src="/src/bugger/media/Nav2.png" alt="Buggerbot in Gazebo Simulation" width="700"/>
 
 ---
 
