@@ -11,6 +11,10 @@
 <p align="center">
   <!-- ADD: A screenshot or GIF of Buggerbot running in Gazebo -->
   <img src="/home/sharva45/Pictures/Screenshots/buggerbot screenshot.png" alt="Buggerbot in Gazebo Simulation" width="700"/>
+
+  <img src="/home/sharva45/Downloads/AMR_1.png" alt="Buggerbot" width="700"/>
+
+  <img src="/home/sharva45/Downloads/AMR_2.png" alt="Buggerbot" width="700"/>
 </p>
 
 > A complete **ROS 2 Humble + Gazebo Harmonic** simulation of Buggerbot — a differential drive wheeled robot — with a full URDF/SDF model, LiDAR/Camera/IMU sensor suite, keyboard teleoperation, and Nav2 autonomous navigation.
@@ -50,7 +54,10 @@
 | ![sim](/home/sharva45/Pictures/Screenshots/buggerbotsim.png) | ![rviz](/home/sharva45/Pictures/Screenshots/buggerbotrviz.png) |
 
 <!-- ADD: Optional video embed or link -->
->  [Watch full demo video](<!-- ADD: YouTube or Google Drive link here -->)
+>  [Mapping](https://drive.google.com/file/d/1BzaT8WcK7Tslg-V6_oF30X5glEvzjWJS/view?usp=drive_link)
+
+   [Navigation](https://drive.google.com/file/d/1neiRENk7V9qBFJP4GAbbFiLTgpIwQHxU/view?usp=drive_link)
+
 
 ---
 
