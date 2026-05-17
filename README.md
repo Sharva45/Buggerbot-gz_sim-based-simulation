@@ -101,31 +101,6 @@ source install/setup.bash
 
 ---
 
-## 📁 Package Structure
-
-```
-Buggerbot-gz_sim-based-simulation/
-│
-├── buggerbot_description/        # URDF/SDF robot model and meshes
-│   ├── urdf/
-│   ├── meshes/
-│   └── launch/
-│
-├── buggerbot_gazebo/             # Gazebo world files and sim launch
-│   ├── worlds/
-│   ├── models/
-│   └── launch/
-│
-├── buggerbot_navigation/         # Nav2 config, maps, and nav launch
-│   ├── config/
-│   ├── maps/
-│   └── launch/
-│
-├── buggerbot_teleop/             # Teleoperation launch and config
-│   └── launch/
-│
-└── README.md
-```
 
 > ⚠️ Update the structure above to match your actual directory layout.
 
@@ -142,7 +117,7 @@ source ~/ros2_ws/install/setup.bash
 
 ```bash
 # ADD: your actual launch command here
-ros2 launch buggerbot_gazebo <YOUR_LAUNCH_FILE>.launch.py
+ros2 launch bugger gz_simulator_launch.py
 ```
 
 <!-- ADD: Screenshot of Gazebo opening with robot spawned -->
@@ -164,8 +139,9 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard \
 ### 3. Autonomous Navigation (Nav2)
 
 ```bash
+#Check the 
 # ADD: your navigation launch command here
-ros2 launch buggerbot_navigation <YOUR_NAV_LAUNCH_FILE>.launch.py
+ros2 launch bugger navigation.launch.py
 ```
 
 <!-- ADD: Screenshot of Nav2 running in RViz2 with path visible -->
