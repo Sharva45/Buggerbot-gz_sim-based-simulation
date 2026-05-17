@@ -10,11 +10,11 @@
 
 <p align="center">
   <!-- ADD: A screenshot or GIF of Buggerbot running in Gazebo -->
-  <img src="/home/sharva45/Pictures/Screenshots/buggerbot screenshot.png" alt="Buggerbot in Gazebo Simulation" width="700"/>
+  <img src="/home/sharva45/buggerbot/src/bugger/media/buggerbot screenshot.png" alt="Buggerbot in Gazebo Simulation" width="700"/>
 
-  <img src="/home/sharva45/Downloads/AMR_1.png" alt="Buggerbot" width="700"/>
+  <img src="/home/sharva45/buggerbot/src/bugger/media/AMR_1.png" alt="Buggerbot" width="700"/>
 
-  <img src="/home/sharva45/Downloads/AMR_2.png" alt="Buggerbot" width="700"/>
+  <img src="/home/sharva45/buggerbot/src/bugger/media/AMR_2.png" alt="Buggerbot" width="700"/>
 </p>
 
 > A complete **ROS 2 Humble + Gazebo Harmonic** simulation of Buggerbot — a differential drive wheeled robot — with a full URDF/SDF model, LiDAR/Camera/IMU sensor suite, keyboard teleoperation, and Nav2 autonomous navigation.
@@ -48,15 +48,14 @@
 
 ##  Demo
 
-<!-- ADD: Screenshots of robot in Gazebo world and RViz2 -->
 | Gazebo Simulation | RViz2 Navigation |
 |:-----------------:|:----------------:|
-| ![sim](/home/sharva45/Pictures/Screenshots/buggerbotsim.png) | ![rviz](/home/sharva45/Pictures/Screenshots/buggerbotrviz.png) |
+| ![sim](/home/sharva45/buggerbot/src/bugger/media/buggerbotsim.png) | ![rviz](/home/sharva45/buggerbot/src/bugger/media/buggerbotrviz.png) |
 
-<!-- ADD: Optional video embed or link -->
->  [Mapping](https://drive.google.com/file/d/1BzaT8WcK7Tslg-V6_oF30X5glEvzjWJS/view?usp=drive_link)
 
-   [Navigation](https://drive.google.com/file/d/1neiRENk7V9qBFJP4GAbbFiLTgpIwQHxU/view?usp=drive_link)
+>  [Mapping](/home/sharva45/buggerbot/src/bugger/media/Mapping.webm)
+
+   [Navigation](/home/sharva45/buggerbot/src/bugger/media/Navigation.webm)
 
 
 ---
@@ -123,35 +122,33 @@ source ~/ros2_ws/install/setup.bash
 ### 1. Launch Simulation
 
 ```bash
-# ADD: your actual launch command here
+
 ros2 launch bugger gz_simulator_launch.py
 ```
 
-<!-- ADD: Screenshot of Gazebo opening with robot spawned -->
+
 
 ---
 
 ### 2. Teleoperation
 
 ```bash
-# ADD: your teleop command here
+
 ros2 run teleop_twist_keyboard teleop_twist_keyboard \
   --ros-args -r /cmd_vel:=<YOUR_CMD_VEL_TOPIC>
 ```
 
-<!-- ADD: GIF of robot being driven with keyboard -->
 
 ---
 
 ### 3. Autonomous Navigation (Nav2)
 
 ```bash
-#Check the 
-# ADD: your navigation launch command here
+
 ros2 launch bugger navigation.launch.py
 ```
 
-<!-- ADD: Screenshot of Nav2 running in RViz2 with path visible -->
+<img src="/home/sharva45/buggerbot/src/bugger/media/buggerbot screenshot.png" alt="Buggerbot in Gazebo Simulation" width="700"/>
 
 ---
 
@@ -159,11 +156,11 @@ ros2 launch bugger navigation.launch.py
 
 | Sensor | Topic | Message Type |
 |--------|-------|--------------|
-| LiDAR | `<!-- ADD topic -->` | `sensor_msgs/LaserScan` |
-| Camera | `<!-- ADD topic -->` | `sensor_msgs/Image` |
-| IMU | `<!-- ADD topic -->` | `sensor_msgs/Imu` |
-| Odometry | `<!-- ADD topic -->` | `nav_msgs/Odometry` |
-| Cmd Vel | `<!-- ADD topic -->` | `geometry_msgs/Twist` |
+| LiDAR | `/scan` | `sensor_msgs/LaserScan` |
+| Camera | `/camera/image` | `sensor_msgs/Image` |
+| IMU | `/imu` | `sensor_msgs/Imu` |
+| Odometry | `/odom` | `nav_msgs/Odometry` |
+| Cmd Vel | `/cmd_vel` | `geometry_msgs/Twist` |
 
 > Run `ros2 topic list` after launching to confirm your actual topic names.
 
