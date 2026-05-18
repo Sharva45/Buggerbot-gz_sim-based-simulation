@@ -19,6 +19,12 @@
 
 > A complete **ROS 2 Humble + Gazebo Harmonic** simulation of Buggerbot — a differential drive wheeled robot — with a full URDF/SDF model, LiDAR/Camera/IMU sensor suite, keyboard teleoperation, and Nav2 autonomous navigation.
 
+> Designed and Created in Solidworks, imported the urdf file and used it for Simulation in Gazebo Harmonic. 
+
+> Bugggerbot because it had lot of bugs in the first version!
+
+>This project can be upgraded. This is the most basic version that i have published. 
+
 ---
 
 ##  Table of Contents
