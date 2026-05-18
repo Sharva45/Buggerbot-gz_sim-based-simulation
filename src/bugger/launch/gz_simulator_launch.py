@@ -19,7 +19,7 @@ def generate_launch_description():
     # Check if we're told to use sim time
     use_sim_time = LaunchConfiguration('use_sim_time')
     bringup_dir = get_package_share_directory('bugger')
-    world = os.path.join(bringup_dir , "world", "ionic.sdf")
+    world = os.path.join(bringup_dir , "world", "depot.sdf")
     sdf_file  =  os.path.join(bringup_dir, 'urdf', 'robot.sdf')
     with open(sdf_file, 'r') as infp:
         robot_desc = infp.read()
