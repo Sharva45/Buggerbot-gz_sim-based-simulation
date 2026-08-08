@@ -514,13 +514,6 @@
       </geometry>
     </collision>
   </link>
-  <link name="depth_camera_optical_frame"/>
-
-    <joint name="depth_camera_optical_joint" type="fixed">
-      <parent link="depth_camera"/>
-      <child link="depth_camera_optical_frame"/>
-      <origin xyz="0 0 0" rpy="-1.5708 0 -1.5708"/>
-    </joint>
   <joint
     name="dcamera"
     type="fixed">
