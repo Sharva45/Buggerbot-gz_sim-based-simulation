@@ -40,7 +40,7 @@
 
 
     <joint name="dcamera" type="fixed">
-      <pose relative_to="base_link">0 0 0 -1.5708 0 -1.5708</pose>
+      <pose relative_to="base_link">0 0 0 -1.5708 0 0</pose>
       <parent>base_link</parent>
       <child>depth_camera</child>
       <axis>
